@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 function NavbarList({ LinkName, LinkUrl }) {
   return (
     <li className="nav-item">

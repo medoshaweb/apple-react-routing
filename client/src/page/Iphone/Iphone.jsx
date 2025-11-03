@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../../util/axiosInstance";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -11,13 +11,9 @@ const Iphone = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // const res = await fetch("http://localhost:5000/products");
-        // const data = await res.json();
-        // setProducts(data);
-        const res = await axios.get("http://localhost:5000/products");
-        // const res = await axios.get("/products.json");
+        const res = await axiosInstance.get("/products");
         console.log("Fetched products:", res);
-              setProducts(res.data);
+        setProducts(res.data);
       } catch (err) {
         console.error("Error fetching products:", err);
       }

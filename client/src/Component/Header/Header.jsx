@@ -90,7 +90,7 @@ import cart_icon from "../../assets/icons/cart-sm.png";
 import search_icon from "../../assets/icons/search-icon-sm.png";
 import NavbarList from "../NavbarList";
 
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 import { Navbar, Container, Nav } from "react-bootstrap";
 
@@ -108,13 +108,13 @@ function Header() {
 
             <Navbar.Collapse id="basic-navbar-nav">
               <ul className="navbar-nav nav-justified w-100 nav-fill">
-                <NavbarList LinkUrl="/mac/" LinkName="Mac" />
-                <NavbarList LinkUrl="/iphone/" LinkName="iphone" />
-                <NavbarList LinkUrl="/ipad/" LinkName="ipad" />
-                <NavbarList LinkUrl="/watch/" LinkName="watch" />
-                <NavbarList LinkUrl="/tv/" LinkName="tv" />
-                <NavbarList LinkUrl="/Music/" LinkName="Music" />
-                <NavbarList LinkUrl="/Support/" LinkName="Support" />
+                <NavbarList LinkUrl="/mac" LinkName="Mac" />
+                <NavbarList LinkUrl="/iphone" LinkName="iphone" />
+                <NavbarList LinkUrl="/ipad" LinkName="ipad" />
+                <NavbarList LinkUrl="/watch" LinkName="watch" />
+                <NavbarList LinkUrl="/tv" LinkName="tv" />
+                <NavbarList LinkUrl="/music" LinkName="Music" />
+                <NavbarList LinkUrl="/support" LinkName="Support" />
                 <li className="nav-item">
                   <Link className="nav-link js-scroll-trigger" to="/search/">
                     <img src={search_icon} alt="search" />

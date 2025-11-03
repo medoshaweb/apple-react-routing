@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SharedLayout from "./Component/SharedLayout";
 import Main from "./Component/Main/Main";
@@ -20,7 +20,7 @@ function App() {
       <Route path="/" element={<SharedLayout />}>
         <Route path="/" element={<Main />} />
         <Route path="iphone" element={<Iphone />} />
-        <Route path="/iphone/:product_id" element={<ProductDetail />} />
+        <Route path="iphone/:product_id" element={<ProductDetail />} />
         <Route path="ipad" element={<Ipad />} />
         <Route path="mac" element={<Mac />} />
         <Route path="music" element={<Music />} />

@@ -1,10 +1,7 @@
 import express from "express";
-import mysql from "mysql2";
+// import mysql from "mysql2";
 
 import cors from "cors";
-
-
-
 
 const app = express();
 
@@ -18,7 +15,24 @@ const db = mysql.createConnection({
   user: "root",
   password: "",
   database: "mydb",
-  });
+});
+
+// Connect to database
+db.connect((err) => {
+  if (err) {
+    console.error("❌ Database connection failed:", err.message);
+    process.exit(1);
+  }
+  console.log("✅ Connected to MySQL database");
+});
+
+// Handle database disconnection
+db.on("error", (err) => {
+  console.error("❌ Database error:", err.message);
+  if (err.code === "PROTOCOL_CONNECTION_LOST") {
+    console.log("Attempting to reconnect...");
+  }
+});
 
 //  GET all products
 app.get("/products", (req, res) => {
@@ -64,6 +78,9 @@ app.get("/products/:pid", (req, res) => {
 
   db.query(sql, [pid], (err, result) => {
     if (err) return res.status(500).json({ error: err.message });
+    if (!result || result.length === 0) {
+      return res.status(404).json({ error: "Product not found" });
+    }
     res.json(result[0]); // return single product
   });
 });
